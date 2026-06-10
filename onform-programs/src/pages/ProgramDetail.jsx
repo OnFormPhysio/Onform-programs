@@ -74,7 +74,7 @@ export default function ProgramDetail() {
       const appUrl = import.meta.env.VITE_APP_URL || "https://www.onformphysio.com.au/programs";
       const res = await fetch(`${import.meta.env.VITE_FUNCTIONS_URL}/create-checkout-session`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "apikey": import.meta.env.VITE_SUPABASE_ANON_KEY },
+        headers: { "Content-Type": "application/json", "apikey": import.meta.env.VITE_SUPABASE_ANON_KEY, "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}` },
         body: JSON.stringify({
           purchase_type: "program",
           programSlug:   program.slug,
